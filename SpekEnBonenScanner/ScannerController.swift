@@ -12,7 +12,6 @@ import CoreData
 
 class ScannerController: UIViewController {
     
-    @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
     
     var captureSession = AVCaptureSession()
@@ -79,7 +78,6 @@ class ScannerController: UIViewController {
         captureSession.startRunning()
         
         // Move the message label and top bar to the front
-        view.bringSubviewToFront(messageLabel)
         view.bringSubviewToFront(topbar)
         
         // Initialize QR Code Frame to highlight the QR code
@@ -110,7 +108,6 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
             if metadataObjects.count == 0 {
                 qrCodeFrameView.frame = CGRect.zero
-                messageLabel.text = "Ik kan geen code herkennen"
                 return
             }
         
