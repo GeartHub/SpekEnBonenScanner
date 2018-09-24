@@ -19,6 +19,10 @@ class ScannerController: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView = UIView()
     var scannedBarcode: String = ""
+    var foundProduct: String = ""
+    
+    @IBOutlet weak var productNameLabel: UILabel!
+    var products: [Product] = []
     
     
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
@@ -38,7 +42,7 @@ class ScannerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        fetchProducts()
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
         
@@ -79,13 +83,25 @@ class ScannerController: UIViewController {
         
         // Move the message label and top bar to the front
         view.bringSubviewToFront(topbar)
+        view.bringSubviewToFront(productNameLabel)
         
         // Initialize QR Code Frame to highlight the QR code
         
-            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-            qrCodeFrameView.layer.borderWidth = 2
-            view.addSubview(qrCodeFrameView)
-            view.bringSubviewToFront(qrCodeFrameView)
+        qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+        qrCodeFrameView.layer.borderWidth = 2
+        view.addSubview(qrCodeFrameView)
+        view.bringSubviewToFront(qrCodeFrameView)
+        self.view.bringSubviewToFront(self.productNameLabel)
+
+    }
+    func fetchProducts(){
+        let context = CoreDataStack.context
+        do {
+            products = try context.fetch(Product.fetchRequest())
+        }
+        catch{
+            print("Cant find any products")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,12 +110,12 @@ class ScannerController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "BarcodeScannedSegue", let destination = segue.destination as? ScannedItemViewController{
+        if segue.identifier == "NewBarcodeScannedSegue", let destination = segue.destination as? AddScannedItemViewController{
             destination.barcode = scannedBarcode
+        }else if segue.identifier == "ProductFoundSegue", let destination = segue.destination as? FoundScannedItemViewController{
+            destination.productName = foundProduct
         }
     }
-    
-
 }
 
 extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
@@ -119,9 +135,23 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView.frame = barCodeObject!.bounds
             if metadataObj.stringValue != nil {
+                let product = products.first(where: {$0.barcode == metadataObj.stringValue})
                 scannedBarcode = metadataObj.stringValue!
-                performSegue(withIdentifier: "BarcodeScannedSegue", sender: self)
+                if product != nil{
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.productNameLabel.text  = product?.name
+                        
+                        self.productNameLabel.alpha = 1
+                        self.foundProduct = (product?.name)!
+                        
+                    }, completion: { (Value: Bool) in
+                        self.performSegue(withIdentifier: "ProductFoundSegue", sender: self)
+                        })
+                }else{
+                    performSegue(withIdentifier: "NewBarcodeScannedSegue", sender: self)
+                }
                 captureSession.stopRunning()
+
             }
         }
     }

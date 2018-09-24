@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ScannedItemViewController: UIViewController {
+class AddScannedItemViewController: UIViewController {
     
     @IBOutlet weak var productNameView: UIView!
     @IBOutlet weak var productNameTextField: UITextField!
@@ -70,9 +70,9 @@ class ScannedItemViewController: UIViewController {
         }
     }
 }
-extension ScannedItemViewController: UITextFieldDelegate{
+extension AddScannedItemViewController: UITextFieldDelegate{
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(ScannedItemViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(AddScannedItemViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }

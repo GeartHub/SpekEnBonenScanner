@@ -11,7 +11,8 @@
 		DA6FF59C21541B6D0095EB7C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF59B21541B6D0095EB7C /* CoreDataStack.swift */; };
 		DA6FF59F21541D1D0095EB7C /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF59D21541D1D0095EB7C /* Product+CoreDataClass.swift */; };
 		DA6FF5A021541D1D0095EB7C /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF59E21541D1D0095EB7C /* Product+CoreDataProperties.swift */; };
-		DA80D9D02154F33F006351A3 /* ScannedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80D9CF2154F33F006351A3 /* ScannedItemViewController.swift */; };
+		DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */; };
+		DAC03C872159199D007D1FEC /* FoundScannedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC03C862159199D007D1FEC /* FoundScannedItemViewController.swift */; };
 		DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74702153F75C00AFF3B9 /* AppDelegate.swift */; };
 		DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74722153F75C00AFF3B9 /* ScannerController.swift */; };
 		DADE74762153F75C00AFF3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADE74742153F75C00AFF3B9 /* Main.storyboard */; };
@@ -25,7 +26,8 @@
 		DA6FF59B21541B6D0095EB7C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DA6FF59D21541D1D0095EB7C /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DA6FF59E21541D1D0095EB7C /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DA80D9CF2154F33F006351A3 /* ScannedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedItemViewController.swift; sourceTree = "<group>"; };
+		DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScannedItemViewController.swift; sourceTree = "<group>"; };
+		DAC03C862159199D007D1FEC /* FoundScannedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundScannedItemViewController.swift; sourceTree = "<group>"; };
 		DADE746D2153F75C00AFF3B9 /* SpekEnBonenScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpekEnBonenScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADE74702153F75C00AFF3B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DADE74722153F75C00AFF3B9 /* ScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
@@ -69,7 +71,8 @@
 			children = (
 				DA6FF59D21541D1D0095EB7C /* Product+CoreDataClass.swift */,
 				DA6FF59E21541D1D0095EB7C /* Product+CoreDataProperties.swift */,
-				DA80D9CF2154F33F006351A3 /* ScannedItemViewController.swift */,
+				DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */,
+				DAC03C862159199D007D1FEC /* FoundScannedItemViewController.swift */,
 				DADE74852154001900AFF3B9 /* CodeViewController.swift */,
 				DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */,
 				DADE74702153F75C00AFF3B9 /* AppDelegate.swift */,
@@ -154,10 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA6FF59C21541B6D0095EB7C /* CoreDataStack.swift in Sources */,
+				DAC03C872159199D007D1FEC /* FoundScannedItemViewController.swift in Sources */,
 				DADE74862154001900AFF3B9 /* CodeViewController.swift in Sources */,
 				DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */,
 				DA6FF5A021541D1D0095EB7C /* Product+CoreDataProperties.swift in Sources */,
-				DA80D9D02154F33F006351A3 /* ScannedItemViewController.swift in Sources */,
+				DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */,
 				DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */,
 				DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */,
 				DA6FF59F21541D1D0095EB7C /* Product+CoreDataClass.swift in Sources */,

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,6 +50,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-9e-exq">
+                                <rect key="frame" x="29" y="248" width="317" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="of1-dP-J9g">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
@@ -92,18 +98,62 @@
                         <viewLayoutGuide key="safeArea" id="rFX-mO-OWV"/>
                     </view>
                     <connections>
+                        <outlet property="productNameLabel" destination="iWJ-9e-exq" id="6mS-vq-0ju"/>
                         <outlet property="topbar" destination="of1-dP-J9g" id="5Rp-rO-DLm"/>
-                        <segue destination="3io-aK-mRr" kind="show" identifier="BarcodeScannedSegue" id="6ma-en-fRB"/>
+                        <segue destination="3io-aK-mRr" kind="show" identifier="NewBarcodeScannedSegue" id="6ma-en-fRB"/>
+                        <segue destination="ey1-Ec-cSw" kind="show" identifier="ProductFoundSegue" id="14f-NG-qkm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBl-5x-qEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="27"/>
+            <point key="canvasLocation" x="831" y="27"/>
         </scene>
-        <!--Scanned Item View Controller-->
+        <!--Found Scanned Item View Controller-->
+        <scene sceneID="v05-HU-gzj">
+            <objects>
+                <viewController id="ey1-Ec-cSw" customClass="FoundScannedItemViewController" customModule="SpekEnBonenScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Apj-xZ-CQW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTp-Fl-XyD">
+                                <rect key="frame" x="0.0" y="119" width="375" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product naam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUB-fu-zll">
+                                        <rect key="frame" x="16" y="41" width="343" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcu-Q0-659">
+                                        <rect key="frame" x="37" y="112" width="300" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="DpT-UE-JTN"/>
+                    </view>
+                    <connections>
+                        <outlet property="productNameLabel" destination="gcu-Q0-659" id="Gk4-me-EDu"/>
+                        <outlet property="productView" destination="ZTp-Fl-XyD" id="wsY-Q1-Cav"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNy-9c-RoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="457"/>
+        </scene>
+        <!--Add Scanned Item View Controller-->
         <scene sceneID="Hdl-4C-vcj">
             <objects>
-                <viewController id="3io-aK-mRr" customClass="ScannedItemViewController" customModule="SpekEnBonenScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3io-aK-mRr" customClass="AddScannedItemViewController" customModule="SpekEnBonenScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6dr-fO-Cen">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="He3-BC-ccB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="26.53673163418291"/>
+            <point key="canvasLocation" x="1687" y="-328"/>
         </scene>
     </scenes>
     <resources>
@@ -187,6 +237,6 @@
         <image name="focus" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kPU-Gs-ahn"/>
+        <segue reference="1YR-o2-hWz"/>
     </inferredMetricsTieBreakers>
 </document>
