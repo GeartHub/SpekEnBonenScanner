@@ -24,6 +24,8 @@ class ScannerController: UIViewController {
     @IBOutlet weak var productNameLabel: UILabel!
     var products: [Product] = []
     
+    var scannedProduct: Product?
+    
     
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
                                       AVMetadataObject.ObjectType.code39,
@@ -112,8 +114,9 @@ class ScannerController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewBarcodeScannedSegue", let destination = segue.destination as? AddScannedItemViewController{
             destination.barcode = scannedBarcode
-        }else if segue.identifier == "ProductFoundSegue", let destination = segue.destination as? FoundScannedItemViewController{
+        }else if segue.identifier == "ProductFoundSegue", let destination = segue.destination as? GroceryListTableViewController{
             destination.productName = foundProduct
+            destination.product = scannedProduct
         }
     }
 }
@@ -143,6 +146,9 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
                         
                         self.productNameLabel.alpha = 1
                         self.foundProduct = (product?.name)!
+                        
+                        self.scannedProduct?.name = product?.name
+                        self.scannedProduct?.barcode = product?.barcode
                         
                     }, completion: { (Value: Bool) in
                         self.performSegue(withIdentifier: "ProductFoundSegue", sender: self)

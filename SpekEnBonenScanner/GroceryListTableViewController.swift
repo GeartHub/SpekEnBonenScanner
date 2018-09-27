@@ -1,5 +1,5 @@
 //
-//  FoundScannedItemViewController.swift
+//  GroceryListTableViewController.swift
 //  SpekEnBonenScanner
 //
 //  Created by Geart Otten on 24/09/2018.
@@ -9,17 +9,19 @@
 import Foundation
 import UIKit
 
-class FoundScannedItemViewController: UIViewController {
+class GroceryListTableViewController: UITableViewController {
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var productNameLabel: UILabel!
     
     var productName: String = ""
     
+    var product: Product?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        UIView.animate(withDuration: 3, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.productNameLabel.text = self.productName
             self.productNameLabel.alpha = 1
         })
