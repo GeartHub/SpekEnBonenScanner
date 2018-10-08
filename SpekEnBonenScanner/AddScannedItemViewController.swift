@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 class AddScannedItemViewController: UIViewController {
     
@@ -16,58 +17,41 @@ class AddScannedItemViewController: UIViewController {
     @IBOutlet weak var addProductView: UIView!
     @IBOutlet weak var productBarcodeTextField: UITextField!
     
-    var products: [Product] = []
+    let database = CKContainer.default().publicCloudDatabase
+    
+    var products = [CKRecord]()
+    
     var barcode: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchProducts()
-        
+        productBarcodeTextField.text = barcode
         productNameTextField.delegate = self
         productBarcodeTextField.delegate = self
         
-        let product = products.first(where: {$0.barcode == barcode})
-        
-        if product == nil{
-            newProduct(with: barcode)
-        }else{
-            showProductInformation(with: product!)
-        }
-    }
-    func newProduct(with barcode: String){
-        UIView.animate(withDuration: 0.5, animations: {
-            self.addProductView.alpha = 1
-            self.productNameView.alpha = 1
-            
-        })
-        productNameTextField.isUserInteractionEnabled = true
-        productBarcodeTextField.text = barcode
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true
     }
-    func showProductInformation(with product: Product){
-        UIView.animate(withDuration: 0.5, animations: {
-            self.productNameView.alpha = 1
-            self.productNameTextField.text = product.name
-        }, completion: nil)
-    }
     @IBAction func addProductButton(_ sender: Any) {
-        let product = Product(context: CoreDataStack.context)
-        product.name = productNameTextField.text
-        product.barcode = productBarcodeTextField.text
-        CoreDataStack.saveContext()
-        fetchProducts()
+        guard let productName = productNameTextField.text else { return }
+        guard let productBarcode = productBarcodeTextField.text else { return }
+        self.saveToCloud(name: productName, barcode: productBarcode)
     }
-    func fetchProducts(){
-        let context = CoreDataStack.context
-        do {
-            products = try context.fetch(Product.fetchRequest())
-        }
-        catch{
-            print("Cant find any products")
-        }
+    
+    func saveToCloud(name: String, barcode: String){
+        
+        let newProduct = CKRecord(recordType: "Products")
+        
+        newProduct.setValue(name, forKey: "levelOneProductName")
+        newProduct.setValue(name, forKey: "levelTwoProductName")
+        newProduct.setValue(name, forKey: "levelThreeProductName")
+        newProduct.setValue(barcode, forKey: "productBarcode")
+        
+        database.save(newProduct, completionHandler: { ( record, error) in
+            guard record != nil else { return }
+        })
     }
 }
 extension AddScannedItemViewController: UITextFieldDelegate{

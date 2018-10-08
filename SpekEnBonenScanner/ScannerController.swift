@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-import CoreData
+import CloudKit
 
 class ScannerController: UIViewController {
     
@@ -16,13 +16,16 @@ class ScannerController: UIViewController {
     
     var captureSession = AVCaptureSession()
     
+    let database = CKContainer.default().publicCloudDatabase
+    
+    var products = [CKRecord]()
+    
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView = UIView()
     var scannedBarcode: String = ""
     var foundProduct: String = ""
     
     @IBOutlet weak var productNameLabel: UILabel!
-    var products: [Product] = []
     
     var scannedProduct: Product?
     
@@ -43,8 +46,7 @@ class ScannerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchProducts()
+        queryDatabase()
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
         
@@ -96,14 +98,17 @@ class ScannerController: UIViewController {
         self.view.bringSubviewToFront(self.productNameLabel)
 
     }
+    @objc func queryDatabase(){
+        let query  = CKQuery(recordType: "Test" , predicate: NSPredicate(value: true))
+        
+        database.perform(query, inZoneWith: nil) { (records, _ ) in
+            guard let records = records else { return }
+            self.products = records
+        }
+    }
+    
     func fetchProducts(){
-        let context = CoreDataStack.context
-        do {
-            products = try context.fetch(Product.fetchRequest())
-        }
-        catch{
-            print("Cant find any products")
-        }
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -134,22 +139,17 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
             let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
             if supportedCodeTypes.contains(metadataObj.type) {
-                // If the found metadata is equal to the code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView.frame = barCodeObject!.bounds
             if metadataObj.stringValue != nil {
-                let product = products.first(where: {$0.barcode == metadataObj.stringValue})
+                let product = products.first(where: {$0.value(forKey: "productBarcode")as? String  == metadataObj.stringValue!})
                 scannedBarcode = metadataObj.stringValue!
                 if product != nil{
                     UIView.animate(withDuration: 0.5, animations: {
-                        self.productNameLabel.text  = product?.name
-                        
+                        self.productNameLabel.text  = product?.value(forKey: "productName") as! String
+
                         self.productNameLabel.alpha = 1
-                        self.foundProduct = (product?.name)!
-                        
-                        self.scannedProduct?.name = product?.name
-                        self.scannedProduct?.barcode = product?.barcode
-                        
+                        self.foundProduct = product?.value(forKey: "productName") as! String
                     }, completion: { (Value: Bool) in
                         self.performSegue(withIdentifier: "ProductFoundSegue", sender: self)
                         })
