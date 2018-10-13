@@ -8,21 +8,21 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 class GroceryListTableViewController: UITableViewController {
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var productNameLabel: UILabel!
     
-    var productName: String = ""
-    
-    var product: Product?
+    var product: CKRecord!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(product)
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.productNameLabel.text = self.productName
+            self.productNameLabel.text = self.product?.value(forKey: "levelOneProductName") as? String
             self.productNameLabel.alpha = 1
         })
     }

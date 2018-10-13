@@ -10,8 +10,7 @@
 		DA33F8A9215A6D0800057621 /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F8A8215A6D0800057621 /* GroceryListTableViewController.swift */; };
 		DA6D2C912168B5D8006E42CD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D2C902168B5D8006E42CD /* CloudKit.framework */; };
 		DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */; };
-		DA6FF59F21541D1D0095EB7C /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF59D21541D1D0095EB7C /* Product+CoreDataClass.swift */; };
-		DA6FF5A021541D1D0095EB7C /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF59E21541D1D0095EB7C /* Product+CoreDataProperties.swift */; };
+		DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E04652170A9F500E3BEA0 /* ProductClass.swift */; };
 		DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */; };
 		DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74702153F75C00AFF3B9 /* AppDelegate.swift */; };
 		DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74722153F75C00AFF3B9 /* ScannerController.swift */; };
@@ -26,8 +25,7 @@
 		DA6D2C8F2168B5D6006E42CD /* SpekEnBonenScanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpekEnBonenScanner.entitlements; sourceTree = "<group>"; };
 		DA6D2C902168B5D8006E42CD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DA6FF599215418D70095EB7C /* SEBScan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SEBScan.xcdatamodel; sourceTree = "<group>"; };
-		DA6FF59D21541D1D0095EB7C /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DA6FF59E21541D1D0095EB7C /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DA7E04652170A9F500E3BEA0 /* ProductClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClass.swift; sourceTree = "<group>"; };
 		DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScannedItemViewController.swift; sourceTree = "<group>"; };
 		DADE746D2153F75C00AFF3B9 /* SpekEnBonenScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpekEnBonenScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADE74702153F75C00AFF3B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +60,7 @@
 		DADE74642153F75C00AFF3B9 = {
 			isa = PBXGroup;
 			children = (
+				DA7E04652170A9F500E3BEA0 /* ProductClass.swift */,
 				DADE746F2153F75C00AFF3B9 /* SpekEnBonenScanner */,
 				DADE746E2153F75C00AFF3B9 /* Products */,
 				46CFA0966CABA3CC76BE0CA7 /* Frameworks */,
@@ -80,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				DA6D2C8F2168B5D6006E42CD /* SpekEnBonenScanner.entitlements */,
-				DA6FF59D21541D1D0095EB7C /* Product+CoreDataClass.swift */,
-				DA6FF59E21541D1D0095EB7C /* Product+CoreDataProperties.swift */,
 				DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */,
 				DADE74852154001900AFF3B9 /* CodeViewController.swift */,
 				DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */,
@@ -175,16 +172,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6FF59C21541B6D0095EB7C /* CoreDataStack.swift in Sources */,
-				DAC03C872159199D007D1FEC /* FoundScannedItemViewController.swift in Sources */,
 				DADE74862154001900AFF3B9 /* CodeViewController.swift in Sources */,
 				DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */,
-				DA6FF5A021541D1D0095EB7C /* Product+CoreDataProperties.swift in Sources */,
+				DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */,
 				DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */,
 				DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */,
 				DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */,
 				DA33F8A9215A6D0800057621 /* GroceryListTableViewController.swift in Sources */,
-				DA6FF59F21541D1D0095EB7C /* Product+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

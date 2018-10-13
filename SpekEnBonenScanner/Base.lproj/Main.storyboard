@@ -236,14 +236,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gf-GE-6Du">
-                                <rect key="frame" x="16" y="20" width="152" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scan nog een product"/>
-                                <connections>
-                                    <segue destination="rlM-AI-xBP" kind="show" id="2YR-o2-hWz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ZlX-uT-pJW"/>
@@ -265,6 +257,6 @@
         <image name="focus" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2YR-o2-hWz"/>
+        <segue reference="1YR-o2-hWz"/>
     </inferredMetricsTieBreakers>
 </document>

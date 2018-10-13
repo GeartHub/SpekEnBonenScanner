@@ -16,7 +16,6 @@ class ScannerController: UIViewController {
     
     var captureSession = AVCaptureSession()
     
-    let database = CKContainer.default().publicCloudDatabase
     
     var products = [CKRecord]()
     
@@ -28,7 +27,6 @@ class ScannerController: UIViewController {
     @IBOutlet weak var productNameLabel: UILabel!
     
     var scannedProduct: Product?
-    
     
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
                                       AVMetadataObject.ObjectType.code39,
@@ -46,7 +44,6 @@ class ScannerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        queryDatabase()
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
         
@@ -98,14 +95,6 @@ class ScannerController: UIViewController {
         self.view.bringSubviewToFront(self.productNameLabel)
 
     }
-    @objc func queryDatabase(){
-        let query  = CKQuery(recordType: "Test" , predicate: NSPredicate(value: true))
-        
-        database.perform(query, inZoneWith: nil) { (records, _ ) in
-            guard let records = records else { return }
-            self.products = records
-        }
-    }
     
     func fetchProducts(){
 
@@ -120,8 +109,7 @@ class ScannerController: UIViewController {
         if segue.identifier == "NewBarcodeScannedSegue", let destination = segue.destination as? AddScannedItemViewController{
             destination.barcode = scannedBarcode
         }else if segue.identifier == "ProductFoundSegue", let destination = segue.destination as? GroceryListTableViewController{
-            destination.productName = foundProduct
-            destination.product = scannedProduct
+            destination.product = Product.lastFoundProduct
         }
     }
 }
@@ -142,18 +130,11 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView.frame = barCodeObject!.bounds
             if metadataObj.stringValue != nil {
-                let product = products.first(where: {$0.value(forKey: "productBarcode")as? String  == metadataObj.stringValue!})
-                scannedBarcode = metadataObj.stringValue!
-                if product != nil{
-                    UIView.animate(withDuration: 0.5, animations: {
-                        self.productNameLabel.text  = product?.value(forKey: "productName") as! String
-
-                        self.productNameLabel.alpha = 1
-                        self.foundProduct = product?.value(forKey: "productName") as! String
-                    }, completion: { (Value: Bool) in
-                        self.performSegue(withIdentifier: "ProductFoundSegue", sender: self)
-                        })
+                Product.findBarcode(barcode: metadataObj.stringValue!)
+                if Product.lastFoundProduct != nil{
+                    self.performSegue(withIdentifier: "ProductFoundSegue", sender: self)
                 }else{
+                    scannedBarcode = metadataObj.stringValue!
                     performSegue(withIdentifier: "NewBarcodeScannedSegue", sender: self)
                 }
                 captureSession.stopRunning()
