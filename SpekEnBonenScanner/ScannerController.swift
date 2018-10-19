@@ -16,8 +16,7 @@ class ScannerController: UIViewController {
     
     var captureSession = AVCaptureSession()
     
-    
-    var products = [CKRecord]()
+    var product: Product!
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView = UIView()
@@ -44,7 +43,13 @@ class ScannerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Get the back-facing camera for capturing videos
+        setupVideo()
+        captureSession.startRunning()
+        view.bringSubviewToFront(topbar)
+        setupScanView()
+    }
+    
+    func setupVideo(){
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
         
         guard let captureDevice = deviceDiscoverySession.devices.first else {
@@ -72,32 +77,18 @@ class ScannerController: UIViewController {
             print(error)
             return
         }
-        
-        // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPreviewLayer?.frame = view.layer.bounds
         view.layer.addSublayer(videoPreviewLayer!)
-        
-        // Start video capture.
-        captureSession.startRunning()
-        
-        // Move the message label and top bar to the front
-        view.bringSubviewToFront(topbar)
-        view.bringSubviewToFront(productNameLabel)
-        
-        // Initialize QR Code Frame to highlight the QR code
-        
+    }
+    
+    func setupScanView(){
         qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
         qrCodeFrameView.layer.borderWidth = 2
         view.addSubview(qrCodeFrameView)
         view.bringSubviewToFront(qrCodeFrameView)
         self.view.bringSubviewToFront(self.productNameLabel)
-
-    }
-    
-    func fetchProducts(){
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -109,7 +100,7 @@ class ScannerController: UIViewController {
         if segue.identifier == "NewBarcodeScannedSegue", let destination = segue.destination as? AddScannedItemViewController{
             destination.barcode = scannedBarcode
         }else if segue.identifier == "ProductFoundSegue", let destination = segue.destination as? GroceryListTableViewController{
-            destination.product = Product.lastFoundProduct
+            destination.product = product
         }
     }
 }
@@ -117,28 +108,24 @@ class ScannerController: UIViewController {
 extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-            if metadataObjects.count == 0 {
-                qrCodeFrameView.frame = CGRect.zero
-                return
-            }
+        if metadataObjects.count == 0 {
+            qrCodeFrameView.frame = CGRect.zero
+            return
+        }
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
-            // Get the metadata object.
-            let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-            if supportedCodeTypes.contains(metadataObj.type) {
+        if supportedCodeTypes.contains(metadataObj.type) {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView.frame = barCodeObject!.bounds
             if metadataObj.stringValue != nil {
-                Product.findBarcode(barcode: metadataObj.stringValue!)
-                if Product.lastFoundProduct != nil{
+                product = ProductCache.instance.find(by: metadataObj.stringValue!)
+                if product.barcode != nil{
                     self.performSegue(withIdentifier: "ProductFoundSegue", sender: self)
                 }else{
                     scannedBarcode = metadataObj.stringValue!
                     performSegue(withIdentifier: "NewBarcodeScannedSegue", sender: self)
                 }
-                captureSession.stopRunning()
-
+            captureSession.stopRunning()
             }
         }
     }

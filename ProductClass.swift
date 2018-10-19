@@ -11,33 +11,39 @@ import CloudKit
 
 typealias Barcode = String
 
-class Product {
+final class Product {
     
-    static let database = CKContainer.default().publicCloudDatabase // TODO: Use shared to fetch changes only
+    let database = CKContainer.default().publicCloudDatabase
     
-    static var products = [CKRecord]()
+    var CKProductsArray = [CKRecord]()
+    var products: [Product] = []
     
-    static var lastFoundProduct: CKRecord!
+    public var levelOneName: String?
+    public var levelTwoName: String?
+    public var levelThreeName: String?
+    public var barcode: String?
     
-    static func findBarcode (barcode: Barcode){
-        lastFoundProduct = nil
-        let product = products.first(where: {$0.value(forKey: "productBarcode")as? String  == barcode})
-        if product != nil{
-            lastFoundProduct = product
-        }
+    init() {
     }
     
-    static func queryDatabase(){
-        let query  = CKQuery(recordType: "Products" , predicate: NSPredicate(value: true))
-
-        database.perform(query, inZoneWith: nil) { (records, _ ) in
-            guard let records = records else { return }
-            products = records
-            print(products)
-        }
+    init(from: CKRecord) {
+        levelOneName = from.value(forKey: "levelOneProductName") as? String
+        levelTwoName = from.value(forKey: "levelTwoProductName") as? String
+        levelThreeName = from.value(forKey: "levelThreeProductName") as? String
+        barcode = from.value(forKey: "productBarcode") as? String
     }
-    static func checkChanges(){
+    
+    func save(from newProduct: Product){
+        let newCKRecord = CKRecord(recordType: "Products")
         
+        newCKRecord.setValue(newProduct.levelOneName, forKey: "levelOneProductName")
+        newCKRecord.setValue(newProduct.levelTwoName, forKey: "levelTwoProductName")
+        newCKRecord.setValue(newProduct.levelThreeName, forKey: "levelThreeProductName")
+        newCKRecord.setValue(newProduct.barcode, forKey: "productBarcode")
+        
+        database.save(newCKRecord, completionHandler: { ( record, error) in
+            guard record != nil else { return }
+        })
     }
 
 }

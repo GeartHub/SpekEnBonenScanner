@@ -12,12 +12,14 @@
 		DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */; };
 		DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E04652170A9F500E3BEA0 /* ProductClass.swift */; };
 		DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */; };
+		DAC92A0E2179FCA000221E05 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC92A0D2179FCA000221E05 /* Repository.swift */; };
 		DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74702153F75C00AFF3B9 /* AppDelegate.swift */; };
 		DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74722153F75C00AFF3B9 /* ScannerController.swift */; };
 		DADE74762153F75C00AFF3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADE74742153F75C00AFF3B9 /* Main.storyboard */; };
 		DADE747B2153F75E00AFF3B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DADE747A2153F75E00AFF3B9 /* Assets.xcassets */; };
 		DADE747E2153F75E00AFF3B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADE747C2153F75E00AFF3B9 /* LaunchScreen.storyboard */; };
 		DADE74862154001900AFF3B9 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74852154001900AFF3B9 /* CodeViewController.swift */; };
+		DAF94E4A217890C200290750 /* ProductCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF94E49217890C200290750 /* ProductCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,7 @@
 		DA6FF599215418D70095EB7C /* SEBScan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SEBScan.xcdatamodel; sourceTree = "<group>"; };
 		DA7E04652170A9F500E3BEA0 /* ProductClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClass.swift; sourceTree = "<group>"; };
 		DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScannedItemViewController.swift; sourceTree = "<group>"; };
+		DAC92A0D2179FCA000221E05 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		DADE746D2153F75C00AFF3B9 /* SpekEnBonenScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpekEnBonenScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADE74702153F75C00AFF3B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DADE74722153F75C00AFF3B9 /* ScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		DADE747D2153F75E00AFF3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DADE747F2153F75E00AFF3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DADE74852154001900AFF3B9 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		DAF94E49217890C200290750 /* ProductCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				DA7E04652170A9F500E3BEA0 /* ProductClass.swift */,
+				DAF94E49217890C200290750 /* ProductCache.swift */,
+				DAC92A0D2179FCA000221E05 /* Repository.swift */,
 				DADE746F2153F75C00AFF3B9 /* SpekEnBonenScanner */,
 				DADE746E2153F75C00AFF3B9 /* Products */,
 				46CFA0966CABA3CC76BE0CA7 /* Frameworks */,
@@ -174,11 +180,13 @@
 			files = (
 				DADE74862154001900AFF3B9 /* CodeViewController.swift in Sources */,
 				DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */,
+				DAF94E4A217890C200290750 /* ProductCache.swift in Sources */,
 				DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */,
 				DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */,
 				DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */,
 				DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */,
 				DA33F8A9215A6D0800057621 /* GroceryListTableViewController.swift in Sources */,
+				DAC92A0E2179FCA000221E05 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,10 +16,9 @@ class AddScannedItemViewController: UIViewController {
     @IBOutlet weak var productNameTextField: UITextField!
     @IBOutlet weak var addProductView: UIView!
     @IBOutlet weak var productBarcodeTextField: UITextField!
+    var newProduct = Product()
     
     let database = CKContainer.default().publicCloudDatabase // TODO: Use shared to fetch changes only
-    
-    var products = [CKRecord]()
     
     var barcode: String = ""
     
@@ -35,10 +34,12 @@ class AddScannedItemViewController: UIViewController {
         return true
     }
     @IBAction func addProductButton(_ sender: Any) {
+        
         guard let productName = productNameTextField.text else { return }
         guard let productBarcode = productBarcodeTextField.text else { return }
-        self.saveToCloud(name: productName, barcode: productBarcode)
-        
+        newProduct.barcode = productBarcode
+        newProduct.levelOneName = productName
+        newProduct.save(from: newProduct)
     }
     
     func saveToCloud(name: String, barcode: String){
