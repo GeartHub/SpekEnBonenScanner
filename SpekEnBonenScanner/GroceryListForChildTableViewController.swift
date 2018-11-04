@@ -10,15 +10,18 @@ import Foundation
 import UIKit
 import CloudKit
 
-class GroceryListTableViewController: UITableViewController {
+class GroceryListForChildTableViewController: UITableViewController {
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var productNameLabel: UILabel!
+    
+    var groceryList = UserDefaults.standard.stringArray(forKey: "groceryListArray") ?? [String]()
     
     var product: Product!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(product)
+        
+        let groceryListItem = groceryList.first(where: {$0  == "test"})
         
         UIView.animate(withDuration: 0.5, animations: {
             self.productNameLabel.text = self.product.levelOneName

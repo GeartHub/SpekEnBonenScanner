@@ -9,7 +9,7 @@
 import Foundation
 
 protocol productRepository {
-    func find (by barcode: Barcode)->Product
+    func find (by barcode: Barcode?, by productID: ProductID?)->Product
 }
 
 

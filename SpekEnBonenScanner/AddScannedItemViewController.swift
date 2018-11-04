@@ -29,10 +29,12 @@ class AddScannedItemViewController: UIViewController {
         productBarcodeTextField.delegate = self
         
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true
     }
+    
     @IBAction func addProductButton(_ sender: Any) {
         
         guard let productName = productNameTextField.text else { return }

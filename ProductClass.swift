@@ -10,6 +10,7 @@ import Foundation
 import CloudKit
 
 typealias Barcode = String
+typealias ProductID = String
 
 final class Product {
     
@@ -22,6 +23,7 @@ final class Product {
     public var levelTwoName: String?
     public var levelThreeName: String?
     public var barcode: String?
+    public var productID: String?
     
     init() {
     }
@@ -31,6 +33,7 @@ final class Product {
         levelTwoName = from.value(forKey: "levelTwoProductName") as? String
         levelThreeName = from.value(forKey: "levelThreeProductName") as? String
         barcode = from.value(forKey: "productBarcode") as? String
+        productID = from.recordID.recordName
     }
     
     func save(from newProduct: Product){

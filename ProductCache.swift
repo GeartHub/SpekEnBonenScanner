@@ -19,7 +19,7 @@ final class ProductCache: productRepository {
     private init(){
     }
     
-    func find (by barcode: Barcode) -> Product{
+    func find (by barcode: Barcode?, by productID: ProductID?) -> Product{
         if let product = productsArray.first(where: {$0.barcode  == barcode}){
             return product
         }else{
@@ -36,6 +36,7 @@ final class ProductCache: productRepository {
             for record in records{
                 self.productsArray.append(Product.init(from: record))
             }
+            
         }
     }
     

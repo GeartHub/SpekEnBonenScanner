@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA33F8A9215A6D0800057621 /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F8A8215A6D0800057621 /* GroceryListTableViewController.swift */; };
+		DA33F8A9215A6D0800057621 /* GroceryListForChildTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F8A8215A6D0800057621 /* GroceryListForChildTableViewController.swift */; };
+		DA6BC180218A021C004615FA /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BC17F218A021C004615FA /* UITextFieldExtension.swift */; };
+		DA6BC182218A029A004615FA /* UserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BC181218A029A004615FA /* UserNameViewController.swift */; };
+		DA6BC184218A5DFB004615FA /* ChooseBuddyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BC183218A5DFB004615FA /* ChooseBuddyViewController.swift */; };
 		DA6D2C912168B5D8006E42CD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D2C902168B5D8006E42CD /* CloudKit.framework */; };
 		DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */; };
+		DA7DA151218C747200B8A827 /* GroceryListForParentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DA150218C747200B8A827 /* GroceryListForParentTableViewController.swift */; };
+		DA7DA153218C810500B8A827 /* GroceryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DA152218C810500B8A827 /* GroceryListCell.swift */; };
 		DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E04652170A9F500E3BEA0 /* ProductClass.swift */; };
 		DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */; };
 		DAC92A0E2179FCA000221E05 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC92A0D2179FCA000221E05 /* Repository.swift */; };
@@ -23,10 +28,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA33F8A8215A6D0800057621 /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
+		DA33F8A8215A6D0800057621 /* GroceryListForChildTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListForChildTableViewController.swift; sourceTree = "<group>"; };
+		DA6BC17F218A021C004615FA /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		DA6BC181218A029A004615FA /* UserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewController.swift; sourceTree = "<group>"; };
+		DA6BC183218A5DFB004615FA /* ChooseBuddyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBuddyViewController.swift; sourceTree = "<group>"; };
 		DA6D2C8F2168B5D6006E42CD /* SpekEnBonenScanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpekEnBonenScanner.entitlements; sourceTree = "<group>"; };
 		DA6D2C902168B5D8006E42CD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DA6FF599215418D70095EB7C /* SEBScan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SEBScan.xcdatamodel; sourceTree = "<group>"; };
+		DA7DA150218C747200B8A827 /* GroceryListForParentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListForParentTableViewController.swift; sourceTree = "<group>"; };
+		DA7DA152218C810500B8A827 /* GroceryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListCell.swift; sourceTree = "<group>"; };
 		DA7E04652170A9F500E3BEA0 /* ProductClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClass.swift; sourceTree = "<group>"; };
 		DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScannedItemViewController.swift; sourceTree = "<group>"; };
 		DAC92A0D2179FCA000221E05 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -64,9 +74,11 @@
 		DADE74642153F75C00AFF3B9 = {
 			isa = PBXGroup;
 			children = (
+				DA7DA152218C810500B8A827 /* GroceryListCell.swift */,
 				DA7E04652170A9F500E3BEA0 /* ProductClass.swift */,
 				DAF94E49217890C200290750 /* ProductCache.swift */,
 				DAC92A0D2179FCA000221E05 /* Repository.swift */,
+				DA6BC17F218A021C004615FA /* UITextFieldExtension.swift */,
 				DADE746F2153F75C00AFF3B9 /* SpekEnBonenScanner */,
 				DADE746E2153F75C00AFF3B9 /* Products */,
 				46CFA0966CABA3CC76BE0CA7 /* Frameworks */,
@@ -86,11 +98,14 @@
 			children = (
 				DA6D2C8F2168B5D6006E42CD /* SpekEnBonenScanner.entitlements */,
 				DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */,
+				DA6BC183218A5DFB004615FA /* ChooseBuddyViewController.swift */,
 				DADE74852154001900AFF3B9 /* CodeViewController.swift */,
 				DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */,
+				DA6BC181218A029A004615FA /* UserNameViewController.swift */,
 				DADE74702153F75C00AFF3B9 /* AppDelegate.swift */,
 				DADE74722153F75C00AFF3B9 /* ScannerController.swift */,
-				DA33F8A8215A6D0800057621 /* GroceryListTableViewController.swift */,
+				DA33F8A8215A6D0800057621 /* GroceryListForChildTableViewController.swift */,
+				DA7DA150218C747200B8A827 /* GroceryListForParentTableViewController.swift */,
 				DADE74742153F75C00AFF3B9 /* Main.storyboard */,
 				DADE747A2153F75E00AFF3B9 /* Assets.xcassets */,
 				DADE747C2153F75E00AFF3B9 /* LaunchScreen.storyboard */,
@@ -180,12 +195,17 @@
 			files = (
 				DADE74862154001900AFF3B9 /* CodeViewController.swift in Sources */,
 				DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */,
+				DA6BC184218A5DFB004615FA /* ChooseBuddyViewController.swift in Sources */,
+				DA6BC182218A029A004615FA /* UserNameViewController.swift in Sources */,
 				DAF94E4A217890C200290750 /* ProductCache.swift in Sources */,
+				DA7DA153218C810500B8A827 /* GroceryListCell.swift in Sources */,
 				DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */,
 				DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */,
+				DA6BC180218A021C004615FA /* UITextFieldExtension.swift in Sources */,
 				DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */,
 				DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */,
-				DA33F8A9215A6D0800057621 /* GroceryListTableViewController.swift in Sources */,
+				DA7DA151218C747200B8A827 /* GroceryListForParentTableViewController.swift in Sources */,
+				DA33F8A9215A6D0800057621 /* GroceryListForChildTableViewController.swift in Sources */,
 				DAC92A0E2179FCA000221E05 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
