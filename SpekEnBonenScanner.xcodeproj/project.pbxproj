@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DA33F8A9215A6D0800057621 /* GroceryListForChildTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F8A8215A6D0800057621 /* GroceryListForChildTableViewController.swift */; };
+		DA42A7F821A86F2B00499571 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA42A7F721A86F2B00499571 /* Emoji.plist */; };
+		DA42A7FC21A87E3000499571 /* AddProductsToGroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42A7FB21A87E3000499571 /* AddProductsToGroceryListViewController.swift */; };
 		DA6BC180218A021C004615FA /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BC17F218A021C004615FA /* UITextFieldExtension.swift */; };
-		DA6BC182218A029A004615FA /* UserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BC181218A029A004615FA /* UserNameViewController.swift */; };
+		DA6BC182218A029A004615FA /* ChildNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BC181218A029A004615FA /* ChildNameViewController.swift */; };
 		DA6BC184218A5DFB004615FA /* ChooseBuddyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BC183218A5DFB004615FA /* ChooseBuddyViewController.swift */; };
 		DA6D2C912168B5D8006E42CD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D2C902168B5D8006E42CD /* CloudKit.framework */; };
 		DA6FF59A215418D70095EB7C /* SEBScan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */; };
@@ -17,20 +19,23 @@
 		DA7DA153218C810500B8A827 /* GroceryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DA152218C810500B8A827 /* GroceryListCell.swift */; };
 		DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E04652170A9F500E3BEA0 /* ProductClass.swift */; };
 		DA80D9D02154F33F006351A3 /* AddScannedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */; };
+		DAAA52E721ACA7C00029BD08 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAA52E621ACA7C00029BD08 /* GroceryList.swift */; };
 		DAC92A0E2179FCA000221E05 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC92A0D2179FCA000221E05 /* Repository.swift */; };
 		DADE74712153F75C00AFF3B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74702153F75C00AFF3B9 /* AppDelegate.swift */; };
-		DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74722153F75C00AFF3B9 /* ScannerController.swift */; };
+		DADE74732153F75C00AFF3B9 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74722153F75C00AFF3B9 /* ScanViewController.swift */; };
 		DADE74762153F75C00AFF3B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADE74742153F75C00AFF3B9 /* Main.storyboard */; };
 		DADE747B2153F75E00AFF3B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DADE747A2153F75E00AFF3B9 /* Assets.xcassets */; };
 		DADE747E2153F75E00AFF3B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADE747C2153F75E00AFF3B9 /* LaunchScreen.storyboard */; };
-		DADE74862154001900AFF3B9 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74852154001900AFF3B9 /* CodeViewController.swift */; };
+		DADE74862154001900AFF3B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE74852154001900AFF3B9 /* LoginViewController.swift */; };
 		DAF94E4A217890C200290750 /* ProductCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF94E49217890C200290750 /* ProductCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA33F8A8215A6D0800057621 /* GroceryListForChildTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListForChildTableViewController.swift; sourceTree = "<group>"; };
+		DA42A7F721A86F2B00499571 /* Emoji.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
+		DA42A7FB21A87E3000499571 /* AddProductsToGroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductsToGroceryListViewController.swift; sourceTree = "<group>"; };
 		DA6BC17F218A021C004615FA /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
-		DA6BC181218A029A004615FA /* UserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewController.swift; sourceTree = "<group>"; };
+		DA6BC181218A029A004615FA /* ChildNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildNameViewController.swift; sourceTree = "<group>"; };
 		DA6BC183218A5DFB004615FA /* ChooseBuddyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBuddyViewController.swift; sourceTree = "<group>"; };
 		DA6D2C8F2168B5D6006E42CD /* SpekEnBonenScanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpekEnBonenScanner.entitlements; sourceTree = "<group>"; };
 		DA6D2C902168B5D8006E42CD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -39,15 +44,16 @@
 		DA7DA152218C810500B8A827 /* GroceryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListCell.swift; sourceTree = "<group>"; };
 		DA7E04652170A9F500E3BEA0 /* ProductClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductClass.swift; sourceTree = "<group>"; };
 		DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScannedItemViewController.swift; sourceTree = "<group>"; };
+		DAAA52E621ACA7C00029BD08 /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		DAC92A0D2179FCA000221E05 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		DADE746D2153F75C00AFF3B9 /* SpekEnBonenScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpekEnBonenScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADE74702153F75C00AFF3B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DADE74722153F75C00AFF3B9 /* ScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
+		DADE74722153F75C00AFF3B9 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		DADE74752153F75C00AFF3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DADE747A2153F75E00AFF3B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DADE747D2153F75E00AFF3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DADE747F2153F75E00AFF3B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DADE74852154001900AFF3B9 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		DADE74852154001900AFF3B9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAF94E49217890C200290750 /* ProductCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,14 +77,60 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DADE74642153F75C00AFF3B9 = {
+		DA7A50CB21996D2A0038D896 /* Product */ = {
 			isa = PBXGroup;
 			children = (
 				DA7DA152218C810500B8A827 /* GroceryListCell.swift */,
+				DAAA52E621ACA7C00029BD08 /* GroceryList.swift */,
 				DA7E04652170A9F500E3BEA0 /* ProductClass.swift */,
-				DAF94E49217890C200290750 /* ProductCache.swift */,
 				DAC92A0D2179FCA000221E05 /* Repository.swift */,
+				DAF94E49217890C200290750 /* ProductCache.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		DA7A50CC21996D3F0038D896 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
 				DA6BC17F218A021C004615FA /* UITextFieldExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DA7A50CD21996D550038D896 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DADE74742153F75C00AFF3B9 /* Main.storyboard */,
+				DADE747C2153F75E00AFF3B9 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DA7A50CE21996D690038D896 /* Child */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BC181218A029A004615FA /* ChildNameViewController.swift */,
+				DA33F8A8215A6D0800057621 /* GroceryListForChildTableViewController.swift */,
+				DADE74722153F75C00AFF3B9 /* ScanViewController.swift */,
+				DA6BC183218A5DFB004615FA /* ChooseBuddyViewController.swift */,
+			);
+			path = Child;
+			sourceTree = "<group>";
+		};
+		DA7A50CF21996D9F0038D896 /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+				DA7DA150218C747200B8A827 /* GroceryListForParentTableViewController.swift */,
+				DA42A7FB21A87E3000499571 /* AddProductsToGroceryListViewController.swift */,
+				DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */,
+				DADE74852154001900AFF3B9 /* LoginViewController.swift */,
+			);
+			path = Parent;
+			sourceTree = "<group>";
+		};
+		DADE74642153F75C00AFF3B9 = {
+			isa = PBXGroup;
+			children = (
 				DADE746F2153F75C00AFF3B9 /* SpekEnBonenScanner */,
 				DADE746E2153F75C00AFF3B9 /* Products */,
 				46CFA0966CABA3CC76BE0CA7 /* Frameworks */,
@@ -96,20 +148,17 @@
 		DADE746F2153F75C00AFF3B9 /* SpekEnBonenScanner */ = {
 			isa = PBXGroup;
 			children = (
+				DA7A50CF21996D9F0038D896 /* Parent */,
+				DA7A50CC21996D3F0038D896 /* Extensions */,
+				DA7A50CE21996D690038D896 /* Child */,
+				DA7A50CB21996D2A0038D896 /* Product */,
+				DA7A50CD21996D550038D896 /* Storyboards */,
 				DA6D2C8F2168B5D6006E42CD /* SpekEnBonenScanner.entitlements */,
-				DA80D9CF2154F33F006351A3 /* AddScannedItemViewController.swift */,
-				DA6BC183218A5DFB004615FA /* ChooseBuddyViewController.swift */,
-				DADE74852154001900AFF3B9 /* CodeViewController.swift */,
 				DA6FF598215418D70095EB7C /* SEBScan.xcdatamodeld */,
-				DA6BC181218A029A004615FA /* UserNameViewController.swift */,
 				DADE74702153F75C00AFF3B9 /* AppDelegate.swift */,
-				DADE74722153F75C00AFF3B9 /* ScannerController.swift */,
-				DA33F8A8215A6D0800057621 /* GroceryListForChildTableViewController.swift */,
-				DA7DA150218C747200B8A827 /* GroceryListForParentTableViewController.swift */,
-				DADE74742153F75C00AFF3B9 /* Main.storyboard */,
 				DADE747A2153F75E00AFF3B9 /* Assets.xcassets */,
-				DADE747C2153F75E00AFF3B9 /* LaunchScreen.storyboard */,
 				DADE747F2153F75E00AFF3B9 /* Info.plist */,
+				DA42A7F721A86F2B00499571 /* Emoji.plist */,
 			);
 			path = SpekEnBonenScanner;
 			sourceTree = "<group>";
@@ -181,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADE747E2153F75E00AFF3B9 /* LaunchScreen.storyboard in Resources */,
+				DA42A7F821A86F2B00499571 /* Emoji.plist in Resources */,
 				DADE747B2153F75E00AFF3B9 /* Assets.xcassets in Resources */,
 				DADE74762153F75C00AFF3B9 /* Main.storyboard in Resources */,
 			);
@@ -193,10 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DADE74862154001900AFF3B9 /* CodeViewController.swift in Sources */,
-				DADE74732153F75C00AFF3B9 /* ScannerController.swift in Sources */,
+				DADE74862154001900AFF3B9 /* LoginViewController.swift in Sources */,
+				DADE74732153F75C00AFF3B9 /* ScanViewController.swift in Sources */,
 				DA6BC184218A5DFB004615FA /* ChooseBuddyViewController.swift in Sources */,
-				DA6BC182218A029A004615FA /* UserNameViewController.swift in Sources */,
+				DAAA52E721ACA7C00029BD08 /* GroceryList.swift in Sources */,
+				DA6BC182218A029A004615FA /* ChildNameViewController.swift in Sources */,
+				DA42A7FC21A87E3000499571 /* AddProductsToGroceryListViewController.swift in Sources */,
 				DAF94E4A217890C200290750 /* ProductCache.swift in Sources */,
 				DA7DA153218C810500B8A827 /* GroceryListCell.swift in Sources */,
 				DA7E04662170A9F500E3BEA0 /* ProductClass.swift in Sources */,
@@ -364,7 +416,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpekEnBonenScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -384,7 +436,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpekEnBonenScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

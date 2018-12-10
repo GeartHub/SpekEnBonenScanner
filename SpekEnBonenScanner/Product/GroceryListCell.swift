@@ -12,3 +12,7 @@ import UIKit
 class GroceryListCell: UITableViewCell{
     @IBOutlet weak var groceryListItem: UILabel!
 }
+class AddToGroceryListCell: UITableViewCell{
+    @IBOutlet weak var itemToAddLabel: UILabel!
+    @IBOutlet weak var checkBoxImage: UIImageView!
+}

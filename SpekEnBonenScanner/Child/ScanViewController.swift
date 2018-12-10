@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CloudKit
 
-class ScannerController: UIViewController {
+class ScanViewController: UIViewController {
     
 //    @IBOutlet var topbar: UIView!
     var captureSession = AVCaptureSession()
@@ -19,7 +19,6 @@ class ScannerController: UIViewController {
     var qrCodeFrameView = UIView()
     var scannedBarcode: String = ""
     var foundProduct: String = ""
-    @IBOutlet weak var productNameLabel: UILabel!
     var scannedProduct: Product?
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
                                       AVMetadataObject.ObjectType.code39,
@@ -42,8 +41,6 @@ class ScannerController: UIViewController {
 //        view.bringSubviewToFront(topbar)
         setupScanView()
         self.navigationItem.backBarButtonItem?.title = " "
-        
-        print(UserDefaults.standard.string(forKey: "Name"))
         
     }
     
@@ -79,7 +76,6 @@ class ScannerController: UIViewController {
         qrCodeFrameView.layer.borderWidth = 2
         view.addSubview(qrCodeFrameView)
         view.bringSubviewToFront(qrCodeFrameView)
-//        self.view.bringSubviewToFront(self.productNameLabel)
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,13 +86,13 @@ class ScannerController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewBarcodeScannedSegue", let destination = segue.destination as? AddScannedItemViewController{
             destination.barcode = scannedBarcode
-        }else if segue.identifier == "ProductFoundSegue", let destination = segue.destination as? GroceryListForChildTableViewController{
+        }else if segue.identifier == "ProductInDatabaseSegue", let destination = segue.destination as? GroceryListForChildTableViewController{
             destination.product = product
         }
     }
 }
 
-extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
+extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if metadataObjects.count == 0 {
@@ -104,14 +100,14 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
             return
         }
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
         if supportedCodeTypes.contains(metadataObj.type) {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView.frame = barCodeObject!.bounds
             if metadataObj.stringValue != nil {
-                product = ProductCache.instance.find(by: metadataObj.stringValue!)
-                if product.barcode != nil{
-                    self.performSegue(withIdentifier: "ProductFoundSegue", sender: self)
+                if let product = ProductCache.instance.find(by: metadataObj.stringValue!){
+                    self.product = product
+                    self.performSegue(withIdentifier: "ProductInDatabaseSegue", sender: self)
+                    
                 }else{
                     scannedBarcode = metadataObj.stringValue!
                     performSegue(withIdentifier: "NewBarcodeScannedSegue", sender: self)

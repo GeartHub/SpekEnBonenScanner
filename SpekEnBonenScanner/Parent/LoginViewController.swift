@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CodeViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var parentsLoginView: UIView!
     @IBOutlet weak var parentsLoginQuestionLabel: UILabel!
@@ -46,7 +46,6 @@ class CodeViewController: UIViewController {
     }
     
     @objc func dismissKeyboard(){
-        print("test")
         self.view.endEditing(true)
     }
     override func didReceiveMemoryWarning() {
@@ -57,9 +56,7 @@ class CodeViewController: UIViewController {
     @IBAction func parentsLoginButton(){
         UIView.animate(withDuration: 0.5, animations: {
             self.parentsLoginView.isHidden = false
-            
         })
-        parentsLoginAnswerTextField.keyboardType = .numberPad
     }
     
     @IBAction func closeParentsLoginButton(){

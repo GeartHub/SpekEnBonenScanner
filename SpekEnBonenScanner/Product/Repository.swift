@@ -8,8 +8,9 @@
 
 import Foundation
 
-protocol productRepository {
-    func find (by barcode: Barcode?, by productID: ProductID?)->Product
+protocol ProductRepository {
+    func find (by barcode: Barcode)->Product?
+    func find (with productID: String)->Product?
 }
 
 

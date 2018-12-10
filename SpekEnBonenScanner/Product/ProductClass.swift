@@ -12,18 +12,21 @@ import CloudKit
 typealias Barcode = String
 typealias ProductID = String
 
+
 final class Product {
     
     let database = CKContainer.default().publicCloudDatabase
     
     var CKProductsArray = [CKRecord]()
     var products: [Product] = []
-    
+   
+    //TODO: Name array for lvls
     public var levelOneName: String?
     public var levelTwoName: String?
     public var levelThreeName: String?
     public var barcode: String?
     public var productID: String?
+    public var scanStatus: Bool?
     
     init() {
     }
@@ -34,6 +37,7 @@ final class Product {
         levelThreeName = from.value(forKey: "levelThreeProductName") as? String
         barcode = from.value(forKey: "productBarcode") as? String
         productID = from.recordID.recordName
+        scanStatus = false
     }
     
     func save(from newProduct: Product){

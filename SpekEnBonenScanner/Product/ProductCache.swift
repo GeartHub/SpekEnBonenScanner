@@ -9,8 +9,9 @@
 import Foundation
 import CloudKit
 
-final class ProductCache: productRepository {
-    static var instance: ProductCache = ProductCache()
+final class ProductCache: ProductRepository {
+    
+    static let instance: ProductCache = ProductCache()
     
     let database = CKContainer.default().publicCloudDatabase
     
@@ -19,14 +20,21 @@ final class ProductCache: productRepository {
     private init(){
     }
     
-    func find (by barcode: Barcode?, by productID: ProductID?) -> Product{
+    func find (by barcode: Barcode) -> Product?{
+        
         if let product = productsArray.first(where: {$0.barcode  == barcode}){
             return product
         }else{
-            return Product()
+            return nil
         }
     }
-    
+    func find(with productID: ProductID) -> Product?{
+        if let product = productsArray.first(where: {$0.productID  == productID}){
+            return product
+        }
+        return nil
+    }
+
     func buildCache(){
         
         let query  = CKQuery(recordType: "Products" , predicate: NSPredicate(value: true))
@@ -36,8 +44,6 @@ final class ProductCache: productRepository {
             for record in records{
                 self.productsArray.append(Product.init(from: record))
             }
-            
         }
     }
-    
 }

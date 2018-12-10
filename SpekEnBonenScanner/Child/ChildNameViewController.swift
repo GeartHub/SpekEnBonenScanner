@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UserNameViewController: UIViewController{
+class ChildNameViewController: UIViewController{
     
     @IBOutlet weak var textFieldName: UITextField!
     
