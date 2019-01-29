@@ -24,7 +24,6 @@ class GroceryListForParentTableViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         groceryList.loadUserDefaults()
-        print(groceryList.localStorage)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,7 +40,6 @@ class GroceryListForParentTableViewController: UIViewController {
 
     }
     @objc func loadList(){
-        groceryList.saveToUserDefaults(from: groceryList.localStorage)
         groceryListTableView.reloadData()
     }
 }
@@ -55,6 +53,6 @@ extension GroceryListForParentTableViewController: UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groceryList.localStorage.count
+        return groceryList.count
     }
 }

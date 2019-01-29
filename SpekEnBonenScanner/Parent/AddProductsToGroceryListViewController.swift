@@ -34,7 +34,7 @@ class AddProductsToGroceryListViewController: UIViewController{
 extension AddProductsToGroceryListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = ProductCache.instance.productsArray[indexPath.row]
-        groceryList.localStorage.append(product)
+        groceryList.add(product: product)
         
         let cell = ProductTableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark

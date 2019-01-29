@@ -23,6 +23,9 @@ final class GroceryList{
         return localStorage.count
     }
     
+    func add(product: Product){
+        localStorage.append(product)
+    }
     func find(by productID: ProductID) -> Product?{
         if let product = localStorage.first(where: {$0.productID  == productID}){
             product.scanStatus = true
@@ -41,10 +44,12 @@ final class GroceryList{
         
     }
     func loadUserDefaults(){
-        groceryListUserDefaultsArray = defaults.stringArray(forKey: "groceryList")!
-        localStorage = [Product]()
-        for item in groceryListUserDefaultsArray{
-            buildLocalGroceryCache(productID: item)
+        if defaults.stringArray(forKey: "groceryList") != nil{
+            groceryListUserDefaultsArray = defaults.stringArray(forKey: "groceryList")!
+            localStorage = [Product]()
+            for item in groceryListUserDefaultsArray{
+                buildLocalGroceryCache(productID: item)
+            }
         }
     }
     func empty(){
